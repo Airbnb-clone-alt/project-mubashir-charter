@@ -1,0 +1,53 @@
+<% layout('layouts/boilerplate') %>
+
+<div class="container my-5">
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-8 col-lg-5">
+      <div class="card shadow-lg border-0 rounded-4"
+           style="background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(8px); min-height: 400px; display: flex; flex-direction: column; justify-content: space-between;">
+
+        <div>
+          <div class="card-header text-center bg-white border-bottom-0 rounded-top-4">
+            <h1 class="mb-0 fw-bold" style="color: #000;"><%= yacht.name %></h1>
+          </div>
+
+          <div class="card-body p-4">
+            <p class="lead mb-4" style="color: #6c757d;"><%= yacht.description %></p>
+
+            <% if (currentUser) { %>
+              <form action="/bookings/<%= yacht._id %>" method="POST" class="mb-4">
+                <div class="row g-3">
+                  <div class="col-12">
+                    <label for="startDate" class="form-label fw-bold">Start Date</label>
+                    <input type="date" id="startDate" name="startDate" class="form-control form-control-lg rounded-pill shadow-sm" required>
+                  </div>
+                  <div class="col-12">
+                    <label for="endDate" class="form-label fw-bold">End Date</label>
+                    <input type="date" id="endDate" name="endDate" class="form-control form-control-lg rounded-pill shadow-sm" required>
+                  </div>
+                </div>
+                <div class="d-grid mt-3">
+                  <button class="btn btn-dark btn-lg rounded-pill shadow-sm">
+                    📅 Book Now
+                  </button>
+                </div>
+              </form>
+            <% } %>
+          </div>
+        </div>
+
+        <% if (currentUser && yacht.author && yacht.author.equals(currentUser._id)) { %>
+        <div class="card-footer bg-transparent border-0 d-flex justify-content-center gap-2 pb-3">
+          <a href="/yachts/<%= yacht._id %>/edit" class="btn btn-outline-secondary rounded-pill shadow-sm">✏️ Edit</a>
+
+          <form action="/yachts/<%= yacht._id %>?_method=DELETE" method="POST"
+                onsubmit="return confirm('Are you sure you want to delete this yacht?');">
+            <button class="btn btn-outline-danger rounded-pill shadow-sm">🗑️ Delete</button>
+          </form>
+        </div>
+        <% } %>
+
+      </div>
+    </div>
+  </div>
+</div>

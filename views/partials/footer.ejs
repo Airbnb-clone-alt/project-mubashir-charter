@@ -1,0 +1,51 @@
+<main>
+  <!-- Content yahaan rahega, ho ya na ho, footer bottom par hi rahega -->
+</main>
+
+<footer
+  style="background: linear-gradient(135deg, rgba(0,0,0,0.8), rgba(31,38,135,0.6));
+         backdrop-filter: blur(8px);
+         color: white;
+         padding: 2rem 1rem;
+         border-top-left-radius: 12px;
+         border-top-right-radius: 12px;
+         width: 100%;">
+  <div class="container text-center">
+    <h5 class="fw-bold mb-3">CharterYacht</h5>
+    <p>&copy; 2025 CharterYacht. All rights reserved.</p>
+    <div class="d-flex justify-content-center gap-3 mt-2 flex-wrap">
+      <a href="/" class="footer-link">Home</a>
+      <a href="/yachts" class="footer-link">Yachts</a>
+      <a href="/bookings" class="footer-link">Bookings</a>
+      <a href="/contact" class="footer-link">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<style>
+  html, body {
+    height: 100%;
+    margin: 0;
+  }
+
+  body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  main {
+    flex: 1;
+  }
+
+  .footer-link {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+  }
+
+  .footer-link:hover {
+    color: #00f2fe;
+    text-shadow: 0 0 5px #00f2fe;
+  }
+</style>

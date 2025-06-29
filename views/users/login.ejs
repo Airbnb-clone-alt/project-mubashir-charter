@@ -1,0 +1,94 @@
+<% layout('layouts/boilerplate') %>
+
+<div class="container d-flex justify-content-center align-items-center" style="min-height: 80vh;">
+  <div class="p-4 rounded shadow-lg" style="background: rgba(0, 0, 0, 0.85); max-width: 400px; width: 100%;">
+    <h1 class="text-center text-white mb-4">Login</h1>
+
+    <form action="/login" method="POST">
+      <div class="mb-3">
+        <label for="username" class="form-label text-white">Username</label>
+        <input type="text" class="form-control bg-dark text-white border-secondary" name="username" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="password" class="form-label text-white">Password</label>
+        <input type="password" class="form-control bg-dark text-white border-secondary" name="password" required>
+      </div>
+
+      <div class="form-check mb-3">
+        <input class="form-check-input" type="checkbox" id="terms" required>
+        <label class="form-check-label text-white" for="terms">
+          I agree to the <a href="/terms" class="text-decoration-underline text-info">Terms & Conditions</a>
+        </label>
+      </div>
+
+      <button type="submit" class="btn btn-gradient w-100 mb-2">Login</button>
+    </form>
+
+    <div class="text-center mt-3">
+      <a href="/auth/google"
+         class="google-btn d-flex align-items-center justify-content-center gap-2 rounded-pill py-2 px-3">
+        <div class="google-icon-wrapper">
+          <img src="https://developers.google.com/identity/images/g-logo.png" alt="Google" width="22" height="22">
+        </div>
+        <span>Continue with Google</span>
+      </a>
+    </div>
+
+    <p class="text-center text-white mt-3">
+      Don’t have an account?
+      <a href="/register" class="text-info text-decoration-underline">Register</a>
+    </p>
+  </div>
+</div>
+
+<style>
+  .btn-gradient {
+    background: linear-gradient(45deg, #00f2fe, #4facfe);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 0.5rem 1.5rem;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .btn-gradient:hover {
+    background: linear-gradient(45deg, #4facfe, #00f2fe);
+    box-shadow: 0 0 10px #00f2fe;
+  }
+
+  .google-btn {
+    background: #fff;
+    color: #555;
+    font-weight: 500;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    text-decoration: none;
+  }
+
+  .google-btn:hover {
+    background: #4285F4;
+    color: #fff;
+    border-color: #4285F4;
+    box-shadow: 0 6px 16px rgba(66, 133, 244, 0.4);
+  }
+
+  .google-icon-wrapper {
+    background: #fff;
+    border-radius: 50%;
+    padding: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .google-btn img {
+    border-radius: 50%;
+    transition: filter 0.3s ease;
+  }
+
+  .google-btn:hover img {
+    filter: brightness(200%);
+  }
+</style>

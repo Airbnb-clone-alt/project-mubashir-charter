@@ -1,0 +1,103 @@
+<% layout('layouts/boilerplate') %>
+
+<div class="container d-flex justify-content-center align-items-center" style="min-height: 80vh;">
+  <div class="card p-4" style="background: rgba(0, 0, 0, 0.8); border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.6); max-width: 400px; width: 100%;">
+    <h1 class="text-center text-white mb-4">Register</h1>
+
+    <form action="/register" method="POST">
+      <div class="mb-3">
+        <label for="username" class="form-label text-white">Username</label>
+        <input type="text" name="username" class="form-control bg-dark text-white border-secondary" required>
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label text-white">Email</label>
+        <input type="email" name="email" class="form-control bg-dark text-white border-secondary" required>
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label text-white">Password</label>
+        <input type="password" name="password" class="form-control bg-dark text-white border-secondary" required>
+      </div>
+      <div class="form-check mb-3">
+        <input class="form-check-input" type="checkbox" name="terms" id="terms" required>
+        <label class="form-check-label text-white" for="terms">
+          I agree to the <a href="/terms" class="text-decoration-underline text-info">Terms & Conditions</a>
+        </label>
+      </div>
+      <button type="submit" class="btn btn-gradient w-100">Register</button>
+    </form>
+
+    <a href="/auth/google"
+       class="google-btn d-flex align-items-center justify-content-center gap-2 rounded-pill py-2 px-3 mt-3">
+      <div class="google-icon-wrapper">
+        <img src="https://developers.google.com/identity/images/g-logo.png" alt="Google" width="22" height="22">
+      </div>
+      <span>Continue with Google</span>
+    </a>
+
+    <p class="text-center text-white mt-3">
+      Already have an account? 
+      <a href="/login" class="text-info text-decoration-underline">Login</a>
+    </p>
+
+  </div>
+</div>
+
+<style>
+  .btn-gradient {
+    background: linear-gradient(45deg, #00f2fe, #4facfe);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 0.5rem 1.5rem;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .btn-gradient:hover {
+    background: linear-gradient(45deg, #4facfe, #00f2fe);
+    box-shadow: 0 0 10px #00f2fe;
+  }
+
+  .google-btn {
+    background: #fff;
+    color: #555;
+    font-weight: 500;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    text-decoration: none;
+  }
+
+  .google-btn:hover {
+    background: #4285F4;
+    color: #fff;
+    border-color: #4285F4;
+    box-shadow: 0 6px 16px rgba(66, 133, 244, 0.4);
+  }
+
+  .google-icon-wrapper {
+    background: #fff;
+    border-radius: 50%;
+    padding: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .google-btn:hover img {
+    filter: brightness(200%);
+  }
+
+  .google-btn img {
+    border-radius: 50%;
+    transition: filter 0.3s ease;
+  }
+
+  .card {
+    backdrop-filter: blur(6px);
+  }
+
+  .form-check-input:checked {
+    background-color: #00f2fe;
+    border-color: #00f2fe;
+  }
+</style>

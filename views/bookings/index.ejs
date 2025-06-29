@@ -1,0 +1,46 @@
+<% layout('layouts/boilerplate') %>
+
+<div class="container my-5">
+  <h1 class="text-center text-white mb-4">My Bookings</h1>
+
+  <% if (bookings.length === 0) { %>
+    <div class="alert alert-warning text-center" role="alert">
+      You have no bookings yet!
+    </div>
+  <% } %>
+
+  <div class="row g-4">
+    <% bookings.forEach(booking => { %>
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card shadow-lg border-0" style="background: rgba(0, 0, 0, 0.85); color: white; border-radius: 12px;">
+          <div class="card-body">
+            <h5 class="card-title fw-bold"><%= booking.yacht.name %></h5>
+            <p class="card-text mb-1">
+              <strong>From:</strong> <%= booking.startDate.toDateString() %>
+            </p>
+            <p class="card-text mb-3">
+              <strong>To:</strong> <%= booking.endDate.toDateString() %>
+            </p>
+            <form action="/bookings/<%= booking._id %>?_method=DELETE" method="POST" onsubmit="return confirm('Are you sure you want to cancel this booking?');">
+              <button type="submit" class="btn btn-danger w-100 rounded-pill shadow-sm">❌ Cancel Booking</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    <% }) %>
+  </div>
+</div>
+
+<style>
+  body {
+    background: white; /* Dark background */
+  }
+  .card {
+    backdrop-filter: blur(6px);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 15px rgba(0, 242, 254, 0.5);
+  }
+</style>

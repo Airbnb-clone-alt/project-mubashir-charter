@@ -1,0 +1,42 @@
+<% layout('layouts/boilerplate') %>
+
+<div class="container my-5 d-flex justify-content-center align-items-center" style="min-height: 80vh;">
+  <div class="card p-4" style="background: rgba(0, 0, 0, 0.85); border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.6); max-width: 500px; width: 100%;">
+    <h1 class="text-center text-white mb-4">Contact Us</h1>
+    <form action="/contact" method="POST">
+      <div class="mb-3">
+        <label for="name" class="form-label text-white">Your Name</label>
+        <input type="text" name="name" id="name" class="form-control bg-dark text-white border-secondary" required>
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label text-white">Email</label>
+        <input type="email" name="email" id="email" class="form-control bg-dark text-white border-secondary" required>
+      </div>
+      <div class="mb-3">
+        <label for="message" class="form-label text-white">Message</label>
+        <textarea name="message" id="message" rows="4" class="form-control bg-dark text-white border-secondary" required></textarea>
+      </div>
+      <button type="submit" class="btn btn-gradient w-100">Send Message</button>
+    </form>
+  </div>
+</div>
+
+<style>
+  .btn-gradient {
+    background: linear-gradient(45deg, #00f2fe, #4facfe);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 0.5rem 1.5rem;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .btn-gradient:hover {
+    background: linear-gradient(45deg, #4facfe, #00f2fe);
+    box-shadow: 0 0 10px #00f2fe;
+  }
+
+  .card {
+    backdrop-filter: blur(6px);
+  }
+</style>
